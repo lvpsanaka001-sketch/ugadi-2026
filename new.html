@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ugadi 2026 | Safety Protocol</title>
+    <style>
+        body {
+            background: #f8fafc; /* Clean Light Background */
+            color: #334155;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #game-area { text-align: center; width: 100%; height: 100%; position: relative; }
+
+        #instruction {
+            margin-top: 60px;
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .heart {
+            font-size: 60px;
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.12s ease-out;
+            user-select: none;
+            z-index: 10;
+        }
+
+        #reveal-btn {
+            display: none;
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ffffff;
+            border: 2px solid #ef4444;
+            color: #ef4444;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+            animation: fadeIn 0.8s;
+        }
+
+        #reveal-btn:hover {
+            background: #ef4444;
+            color: #fff;
+        }
+
+        #final-message {
+            display: none;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 24px;
+            max-width: 400px;
+            margin: auto;
+            line-height: 1.6;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 { color: #0f172a; margin-top: 0; font-size: 1.4rem; }
+        .emoji-land { font-size: 65px; margin: 25px 0; }
+        .highlight { color: #ef4444; font-weight: bold; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div id="game-area">
+    <div id="instruction">Hey Bagaram apudu aduguthav ga anta love chasthuna , nenu aney antha important , nenu antey anta namakam , nenu antey antha important and chala questions ani questions answer nenu chapanu but niu namav kada , now i give you a challenge  , damuntey kinda una heart sysmbol ni  1 minute touch chasi hold chasi patuko thennenu chapinavi ani wrong ani opukunta if you are not able to do that my love is infinite ani opuko atleast now .</div>
+    
+    <div id="broken-heart" class="heart" style="top: 45%; left: 45%;">❤️</div>
+
+    <button id="reveal-btn" onclick="showMessage()">IF YOU CAN'T TOUCH THE HEART, HIT THIS BUTTON</button>
+
+    <div id="final-message">
+        <h2>Chapana I love you lot ani nive namav</h2>
+        <p>Happy Ugadi, My Love!</p>
+        <p><strong>Dont think much I am there to take all the tensions and stress , just support me as pillar of my success . Higher stage ki veli chupidam okna anukunavi ani chesdam no comprimise in any thing . Gatiga koduthunam pakkaga . Niu urike pichiga chayaku just support me chalu Rest I will take care okna . I always love you a lot . Miss you chala.... </strong></p>
+        <p>Don't take stress, don't worry about the 'bitter' tastes of the new year. I am your <span class="highlight">firewall</span>. I am your <span class="highlight">shield</span>.</p>
+        <div class="emoji-land">🧎‍♂️💍❤️</div>
+        <p style="color: #94a3b8; font-size: 0.85rem; font-style: italic;">My love for you is always same and more...Ummmmma</p>
+    </div>
+</div>
+
+<script>
+    const heart = document.getElementById('broken-heart');
+    const btn = document.getElementById('reveal-btn');
+    const finalMsg = document.getElementById('final-message');
+    const instruction = document.getElementById('instruction');
+    let moveCount = 0;
+
+    function moveAway(e) {
+        moveCount++;
+        
+        // Boundaries to keep the heart on screen
+        const padding = 80;
+        const newX = Math.random() * (window.innerWidth - padding * 2) + padding;
+        const newY = Math.random() * (window.innerHeight - padding * 2) + padding;
+        
+        heart.style.left = newX + 'px';
+        heart.style.top = newY + 'px';
+
+        // Reveal the button after 4 attempts
+        if (moveCount >= 4) {
+            btn.style.display = 'block';
+        }
+    }
+
+    // Trigger for Desktop (Mouse) and Mobile (Touch)
+    heart.addEventListener('mouseover', moveAway);
+    heart.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        moveAway();
+    });
+
+    function showMessage() {
+        heart.style.display = 'none';
+        btn.style.display = 'none';
+        instruction.style.display = 'none';
+        finalMsg.style.display = 'block';
+        document.body.style.background = "#fff1f2"; // Slight romantic tint on reveal
+    }
+</script>
+
+</body>
+</html>
